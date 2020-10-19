@@ -28322,15 +28322,28 @@ function Header() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Main;
+exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import stays from "./stays.json";
 function Main() {
+  // async function fetchMemes() {
+  // 	const result = await fetch(stays);
+  //     const data = await result.json();
+  //     console.log(data);
+  //     setAllresult(data);
+  // }
+  // useEffect(() => {
+  // 	fetchMemes();
+  // }, []);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "I do not know how it feels but I just want it more!"));
 }
+
+var _default = Main;
+exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"components/Footer.js":[function(require,module,exports) {
 "use strict";
 

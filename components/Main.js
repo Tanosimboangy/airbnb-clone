@@ -1,6 +1,18 @@
 import React from "react";
+// import stays from "./stays.json";
 
-export default function Main() {
+function Main() {
+
+    // async function fetchMemes() {
+	// 	const result = await fetch(stays);
+    //     const data = await result.json();
+    //     console.log(data);
+    //     setAllresult(data);
+    // }
+    // useEffect(() => {
+	// 	fetchMemes();
+    // }, []);
+
     return (
         <div>
             <p>I do not know how it feels but I just want it more!</p>
@@ -8,3 +20,4 @@ export default function Main() {
     ) 
 }
 
+export default Main;
