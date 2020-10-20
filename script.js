@@ -8,7 +8,15 @@ function App() {
     return (
         <div>
             <Header />
-            <Main />
+            <main className="main">
+                <ul>
+                    <li><h2>Stays in Finland</h2></li>
+                    <li></li>
+                </ul>
+                <div className="wrapper_main">
+                    <Main className="main" />
+                </div>
+            </main>
             <Footer />
         </div>
     )

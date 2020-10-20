@@ -2,16 +2,13 @@ import React from 'react';
 
 export default function Element({item}) {
     return (
-        <div className="container" key={Date.now()}>
+        <div className="container">
             <img src={item.photo} />
             <p>{item.superHost}</p>
             <p>{item.type}</p>
             <p>{item.beds}</p>
             <p>{item.rating}</p>
             <p>{item.title}</p>
-            {/* <p>{item.city}</p>
-            <p>{item.country}</p>
-            <p>{item.maxGuests}</p> */}
         </div>
     )
 }

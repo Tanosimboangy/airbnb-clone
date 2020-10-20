@@ -1,16 +1,18 @@
 import React from "react";
-import Element from "./components/Element.js";
-import stays from "./components/stays.json";
+import Element from "./Element.js";
+import stays from "./stays.json";
 
-export default function Main() {
+function Main() {
     let source = stays;
     return (
         source.map(item =>  {
             return (
-                <div>
+                <section>
                     <Element item={item}/>  
-                </div>
+                </section>
             )
         })
     )
 }
+
+export default Main;
