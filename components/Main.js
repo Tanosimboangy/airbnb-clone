@@ -4,11 +4,14 @@ import stays from "./stays.json";
 
 function Main() {
     let source = stays;
+    for(let i = 0;source.length > i; i++){
+        source[i].id = i;
+   }
     return (
-        source.map(item =>  {
+        source.map(item => {
             return (
-                <section>
-                    <Element item={item}/>  
+                <section key={item.id}>
+                    <Element item={item} />  
                 </section>
             )
         })

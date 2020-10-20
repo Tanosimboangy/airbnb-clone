@@ -11,7 +11,7 @@ function App() {
             <main className="main">
                 <ul>
                     <li><h2>Stays in Finland</h2></li>
-                    <li></li>
+                    <li><p>12 + stays</p></li>
                 </ul>
                 <div className="wrapper_main">
                     <Main className="main" />

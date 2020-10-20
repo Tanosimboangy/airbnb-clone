@@ -28291,21 +28291,15 @@ if ("development" === 'production') {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Header;
+exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Header() {
-  function handleInput(e) {
-    console.log("I love you!");
-  }
-
-  function handleClick(e) {
-    console.log("I love you!");
-  }
-
+function Header({
+  props
+}) {
   return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement("a", {
     href: "https://www.agoda.com/the-wind-bnb/hotel/tainan-tw.html?   cid=1844104"
   }, /*#__PURE__*/_react.default.createElement("svg", {
@@ -28340,11 +28334,9 @@ function Header() {
   }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "Add guest",
-    onChange: handleInput,
     className: "add_guest"
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    onClick: handleClick,
     style: {
       backgroundColor: "white",
       border: "none"
@@ -28362,6 +28354,9 @@ function Header() {
     d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
   })))));
 }
+
+var _default = Header;
+exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"components/Element.js":[function(require,module,exports) {
 "use strict";
 
@@ -28381,7 +28376,9 @@ function Element({
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: item.photo
-  }), /*#__PURE__*/_react.default.createElement("p", null, item.superHost), /*#__PURE__*/_react.default.createElement("p", null, item.type), /*#__PURE__*/_react.default.createElement("p", null, item.beds), /*#__PURE__*/_react.default.createElement("p", null, item.rating), /*#__PURE__*/_react.default.createElement("p", null, item.title));
+  }), /*#__PURE__*/_react.default.createElement("p", null, item.superHost), /*#__PURE__*/_react.default.createElement("ul", {
+    className: "lists"
+  }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, item.type, " ", item.beds)), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, item.rating)))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, item.title))));
 }
 },{"react":"node_modules/react/index.js"}],"components/stays.json":[function(require,module,exports) {
 module.exports = [{
@@ -28543,8 +28540,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Main() {
   let source = _stays.default;
+
+  for (let i = 0; source.length > i; i++) {
+    source[i].id = i;
+  }
+
   return source.map(item => {
-    return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement(_Element.default, {
+    return /*#__PURE__*/_react.default.createElement("section", {
+      key: item.id
+    }, /*#__PURE__*/_react.default.createElement(_Element.default, {
       item: item
     }));
   });
@@ -28585,7 +28589,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("main", {
     className: "main"
-  }, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("h2", null, "Stays in Finland")), /*#__PURE__*/_react.default.createElement("li", null)), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("h2", null, "Stays in Finland")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, "12 + stays"))), /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper_main"
   }, /*#__PURE__*/_react.default.createElement(_Main.default, {
     className: "main"
@@ -28621,7 +28625,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57358" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64648" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
