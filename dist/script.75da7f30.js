@@ -28298,6 +28298,14 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Header() {
+  function handleInput(e) {
+    console.log("I love you!");
+  }
+
+  function handleClick(e) {
+    console.log("I love you!");
+  }
+
   return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement("a", {
     href: "https://www.agoda.com/the-wind-bnb/hotel/tainan-tw.html?   cid=1844104"
   }, /*#__PURE__*/_react.default.createElement("svg", {
@@ -28332,9 +28340,11 @@ function Header() {
   }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "Add guest",
+    onChange: handleInput,
     className: "add_guest"
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
+    onClick: handleClick,
     style: {
       backgroundColor: "white",
       border: "none"
@@ -28611,7 +28621,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49980" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57358" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
