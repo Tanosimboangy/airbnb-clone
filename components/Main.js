@@ -1,23 +1,16 @@
 import React from "react";
-// import stays from "./stays.json";
+import Element from "./components/Element.js";
+import stays from "./components/stays.json";
 
-function Main() {
-
-    // async function fetchMemes() {
-	// 	const result = await fetch(stays);
-    //     const data = await result.json();
-    //     console.log(data);
-    //     setAllresult(data);
-    // }
-    // useEffect(() => {
-	// 	fetchMemes();
-    // }, []);
-
+export default function Main() {
+    let source = stays;
     return (
-        <div>
-            <p>I do not know how it feels but I just want it more!</p>
-        </div>
-    ) 
+        source.map(item =>  {
+            return (
+                <div>
+                    <Element item={item}/>  
+                </div>
+            )
+        })
+    )
 }
-
-export default Main;
