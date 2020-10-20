@@ -28299,7 +28299,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Header() {
   return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement("a", {
-    href: "https://www.agoda.com/the-wind-bnb/hotel/tainan-tw.html?cid=1844104"
+    href: "https://www.agoda.com/the-wind-bnb/hotel/tainan-tw.html?   cid=1844104"
   }, /*#__PURE__*/_react.default.createElement("svg", {
     width: "97",
     height: "26",
@@ -28331,6 +28331,7 @@ function Header() {
     value: "Vaasa, Finland"
   }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
+    placeholder: "Add guest",
     className: "add_guest"
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
