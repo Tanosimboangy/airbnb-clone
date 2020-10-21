@@ -28297,9 +28297,11 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Header({
-  props
-}) {
+function Header() {
+  function onClick() {
+    console.log("I love you!");
+  }
+
   return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement("a", {
     href: "https://www.agoda.com/the-wind-bnb/hotel/tainan-tw.html?   cid=1844104"
   }, /*#__PURE__*/_react.default.createElement("svg", {
@@ -28337,6 +28339,7 @@ function Header({
     className: "add_guest"
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
+    onClick: onClick,
     style: {
       backgroundColor: "white",
       border: "none"
@@ -28376,9 +28379,20 @@ function Element({
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: item.photo
-  }), /*#__PURE__*/_react.default.createElement("p", null, item.superHost), /*#__PURE__*/_react.default.createElement("ul", {
+  }), /*#__PURE__*/_react.default.createElement("p", null, item.superHost), /*#__PURE__*/_react.default.createElement("div", {
     className: "lists"
-  }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, item.type, " ", item.beds)), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, item.rating)))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, item.title))));
+  }, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, item.type, ". ", item.beds, "beds")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24",
+    fill: "red"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+  })), item.rating))), /*#__PURE__*/_react.default.createElement("p", null, item.title)));
 }
 },{"react":"node_modules/react/index.js"}],"components/stays.json":[function(require,module,exports) {
 module.exports = [{
@@ -28625,7 +28639,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64648" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50117" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
