@@ -21,7 +21,7 @@ header h1 {
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
 }
-header form {
+form {
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
@@ -115,6 +115,9 @@ li {
     font-size: 14px;
     line-height: 17px;
     color: #4F4F4F;
+}
+main {
+    padding-top: 35px;
 }
 
 @media (min-width: 720px) {
