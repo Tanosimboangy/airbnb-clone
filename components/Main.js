@@ -31,8 +31,7 @@ function Main() {
         <div>
             <div>
                 <Header togglePopup={togglePopup}/>
-                {isOpen && <Popup HandleFiltering={HandleFiltering} toggleGuest={toggleGuest} togglePopup={togglePopup} handleClose={togglePopup}/>}
-                {addguest && <Guest toggleGuest={toggleGuest}/>}
+                {isOpen && <Popup HandleFiltering={HandleFiltering} toggleGuest={toggleGuest} togglePopup={togglePopup} handleClose={togglePopup}/> || addguest && <Guest toggleGuest={toggleGuest}/>}
             </div>
             <main>
                 {filter.map(item => {

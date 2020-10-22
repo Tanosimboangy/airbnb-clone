@@ -5,20 +5,17 @@ function Guest(props) {
     const [countChild, setCountChild] = useState(0);
 
     return (
-        <div className="Add_guest">
+        <div className="box">
+            <h1>Add new Guests</h1>
             <div>
                 <h2>
                     Adults
                 </h2>
                 <p>Ages 13 or above</p>
-                <div>
-                    {countAdd}
-                    <button onClick={() => setCountAdd((currentCountAdd) => currentCountAdd - 1)}>
-                        -
-                    </button>
-                    <button onClick={() => setCountAdd((currentCountAdd) => currentCountAdd + 1)}>
-                        +
-                    </button>
+                <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', maxWidth:'70px'}}>
+                    <button onClick={() => setCountAdd((currentCountAdd) => currentCountAdd - 1)}>-</button>
+                    <b>{countAdd}</b>
+                    <button onClick={() => setCountAdd((currentCountAdd) => currentCountAdd + 1)}>+</button>
                 </div>
             </div>
             <div>
@@ -26,14 +23,10 @@ function Guest(props) {
                     Children
                 </h2>
                 <p>Ages 2-12</p>
-                <div>
-                    {countChild}
-                    <button onClick={() => setCountChild((currentCountChild) => currentCountChild - 1)}>
-                        -
-                    </button>
-                    <button onClick={() => setCountChild((currentCountChild) => currentCountChild + 1)}>
-                        +
-                    </button>
+                <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', maxWidth:'70px'}}>
+                    <button onClick={() => setCountChild((currentCountChild) => currentCountChild - 1)}>-</button>
+                    <b>{countChild}</b>
+                    <button onClick={() => setCountChild((currentCountChild) => currentCountChild + 1)}>+</button>
                 </div>
             </div>
         </div>

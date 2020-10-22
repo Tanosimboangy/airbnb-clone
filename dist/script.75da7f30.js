@@ -28567,7 +28567,7 @@ function Popup(props) {
   }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "Add guest",
-    onClick: props.toggleGuest,
+    onChange: props.toggleGuest,
     className: "add_guest"
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
@@ -28607,14 +28607,28 @@ function Guest(props) {
   const [countAdd, setCountAdd] = (0, _react.useState)(0);
   const [countChild, setCountChild] = (0, _react.useState)(0);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "Add_guest"
-  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Adults"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 13 or above"), /*#__PURE__*/_react.default.createElement("div", null, countAdd, /*#__PURE__*/_react.default.createElement("button", {
+    className: "box"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Add new Guests"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Adults"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 13 or above"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      maxWidth: '70px'
+    }
+  }, /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setCountAdd(currentCountAdd => currentCountAdd - 1)
-  }, "-"), /*#__PURE__*/_react.default.createElement("button", {
+  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countAdd), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setCountAdd(currentCountAdd => currentCountAdd + 1)
-  }, "+"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Children"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 2-12"), /*#__PURE__*/_react.default.createElement("div", null, countChild, /*#__PURE__*/_react.default.createElement("button", {
+  }, "+"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Children"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 2-12"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      maxWidth: '70px'
+    }
+  }, /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setCountChild(currentCountChild => currentCountChild - 1)
-  }, "-"), /*#__PURE__*/_react.default.createElement("button", {
+  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countChild), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setCountChild(currentCountChild => currentCountChild + 1)
   }, "+"))));
 }
@@ -28680,7 +28694,7 @@ function Main() {
     toggleGuest: toggleGuest,
     togglePopup: togglePopup,
     handleClose: togglePopup
-  }), addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
+  }) || addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
     toggleGuest: toggleGuest
   })), /*#__PURE__*/_react.default.createElement("main", null, filter.map(item => {
     return /*#__PURE__*/_react.default.createElement("section", {
