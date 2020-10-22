@@ -28300,13 +28300,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Element({
   item
 }) {
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: item.photo
-  }), /*#__PURE__*/_react.default.createElement("p", null, item.superHost), /*#__PURE__*/_react.default.createElement("div", {
+  }), /*#__PURE__*/_react.default.createElement("div", {
     className: "lists"
-  }, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, item.type, ". ", item.beds, "beds")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("svg", {
+  }, /*#__PURE__*/_react.default.createElement("ul", {
+    style: {
+      display: "flex",
+      flexDirection: 'row'
+    }
+  }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, item.superHost && /*#__PURE__*/_react.default.createElement("p", null, "superhost")), /*#__PURE__*/_react.default.createElement("li", null, item.type, ". ", item.beds, "beds"))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     height: "24",
     viewBox: "0 0 24 24",
@@ -28317,7 +28322,7 @@ function Element({
     fill: "none"
   }), /*#__PURE__*/_react.default.createElement("path", {
     d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-  })), item.rating))), /*#__PURE__*/_react.default.createElement("p", null, item.title)));
+  })), item.rating))), /*#__PURE__*/_react.default.createElement("p", null, item.title))));
 }
 },{"react":"node_modules/react/index.js"}],"components/stays.json":[function(require,module,exports) {
 module.exports = [{
@@ -28542,15 +28547,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Guest(props) {
-  const [countAdd, setCountAdd] = (0, _react.useState)(0);
-  const [countChild, setCountChild] = (0, _react.useState)(0);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "popup_guest"
   }, /*#__PURE__*/_react.default.createElement("h1", null, "Add new Guests"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Adults"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 13 or above"), /*#__PURE__*/_react.default.createElement("div", {
@@ -28561,9 +28562,11 @@ function Guest(props) {
       maxWidth: '70px'
     }
   }, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => setCountAdd(currentCountAdd => currentCountAdd - 1)
-  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countAdd), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => setCountAdd(currentCountAdd => currentCountAdd + 1)
+    onClick: props.HandleFilteringGuest,
+    onClick: () => props.setCountAdd(currentCountAdd => currentCountAdd - 1)
+  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, props.countAdd), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: props.HandleFilteringGuest,
+    onClick: () => props.setCountAdd(currentCountAdd => currentCountAdd + 1)
   }, "+"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Children"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 2-12"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'flex',
@@ -28572,9 +28575,11 @@ function Guest(props) {
       maxWidth: '70px'
     }
   }, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => setCountChild(currentCountChild => currentCountChild - 1)
-  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countChild), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => setCountChild(currentCountChild => currentCountChild + 1)
+    onClick: props.HandleFilteringGuest,
+    onClick: () => props.setCountChild(currentCountChild => currentCountChild - 1)
+  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, props.countChild), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: props.HandleFilteringGuest,
+    onClick: () => props.setCountChild(currentCountChild => currentCountChild + 1)
   }, "+"))));
 }
 
@@ -28629,6 +28634,7 @@ function Popup(props) {
     value: "Vaasa"
   }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
+    value: props.guestTotal,
     placeholder: "Add guest",
     onChange: props.toggleGuest,
     className: "add_guest"
@@ -28647,7 +28653,12 @@ function Popup(props) {
   }), /*#__PURE__*/_react.default.createElement("path", {
     d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
   })), /*#__PURE__*/_react.default.createElement("span", null, "Search"))), /*#__PURE__*/_react.default.createElement("div", null, props.addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
-    toggleGuest: props.toggleGuest
+    toggleGuest: props.toggleGuest,
+    countAdd: props.countAdd,
+    setCountAdd: props.setCountAdd,
+    countChild: props.countChild,
+    setCountChild: props.setCountChild,
+    HandleFilteringGuest: props.HandleFilteringGuest
   })));
 }
 
@@ -28685,7 +28696,7 @@ function Main() {
     source[i].id = i;
   }
 
-  const [isOpen, setIsOpen] = (0, _react.useState)(false);
+  const [isOpen, setIsOpen] = (0, _react.useState)(!source);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -28696,6 +28707,16 @@ function Main() {
   const toggleGuest = () => {
     setAddguest(!addguest);
   };
+
+  const [countAdd, setCountAdd] = (0, _react.useState)(0);
+  const [countChild, setCountChild] = (0, _react.useState)(0);
+  let guestTotal = countAdd + countChild;
+  const [filterGuest, useFilterGuest] = (0, _react.useState)(source);
+
+  function HandleFilteringGuest(e) {
+    useFilterGuest(filterGuest.filter(guest => guest.maxGuests >= guestTotal));
+    console.log(guest);
+  }
 
   const [filter, useFilter] = (0, _react.useState)(source);
 
@@ -28709,7 +28730,13 @@ function Main() {
     togglePopup: togglePopup,
     handleClose: togglePopup,
     addguest: addguest,
-    toggleGuest: toggleGuest
+    toggleGuest: toggleGuest,
+    countAdd: countAdd,
+    setCountAdd: setCountAdd,
+    countChild: countChild,
+    setCountChild: setCountChild,
+    HandleFilteringGuest: HandleFilteringGuest,
+    guestTotal: guestTotal
   }), /*#__PURE__*/_react.default.createElement(_Header.default, {
     togglePopup: togglePopup
   })), /*#__PURE__*/_react.default.createElement("main", null, filter.map(item => {
@@ -28723,6 +28750,14 @@ function Main() {
 
 var _default = Main;
 exports.default = _default;
+{
+  /* <div>
+     <ul>
+         <li><h2>Stays in Finland</h2></li>
+         <li><p>{source.city} + stays</p></li>
+     </ul>
+  </div> */
+}
 },{"react":"node_modules/react/index.js","./Element.js":"components/Element.js","./stays.json":"components/stays.json","./Header.js":"components/Header.js","./Popup.js":"components/Popup.js"}],"components/Footer.js":[function(require,module,exports) {
 "use strict";
 
@@ -28758,13 +28793,6 @@ function App() {
 }
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), document.getElementById("root"));
-
-{
-  /* <ul>
-  <li><h2>Stays in Finland</h2></li>
-  <li><p>12 + stays</p></li>
-  </ul> */
-}
 },{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Main":"components/Main.js","./components/Footer":"components/Footer.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -28793,7 +28821,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50230" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61084" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

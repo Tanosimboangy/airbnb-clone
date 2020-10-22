@@ -13,8 +13,3 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
-
-{/* <ul>
-<li><h2>Stays in Finland</h2></li>
-<li><p>12 + stays</p></li>
-</ul> */}
