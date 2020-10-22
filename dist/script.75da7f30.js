@@ -28474,9 +28474,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Header(props) {
-  return /*#__PURE__*/_react.default.createElement("header", {
-    onClick: props.togglePopup
-  }, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement("a", {
+  return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement("a", {
     href: "https://www.agoda.com/the-wind-bnb/hotel/tainan-tw.html?   cid=1844104"
   }, /*#__PURE__*/_react.default.createElement("svg", {
     width: "97",
@@ -28492,7 +28490,9 @@ function Header(props) {
     d: "M9.22724 7.5C10.3819 5.5 13.2687 5.5 14.4234 7.5L20.0526 17.25C21.2073 19.25 19.7639 21.75 17.4545 21.75H6.19615C3.88675 21.75 2.44338 19.25 3.59808 17.25L9.22724 7.5Z",
     fill: "#EB5757",
     fillOpacity: "0.8"
-  })))), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("select", {
+  })))), /*#__PURE__*/_react.default.createElement("form", {
+    onClick: props.togglePopup
+  }, /*#__PURE__*/_react.default.createElement("select", {
     name: "country",
     style: {
       border: "none"
@@ -28557,16 +28557,17 @@ function Popup(props) {
     onChange: props.HandleFiltering,
     id: "country-select"
   }, /*#__PURE__*/_react.default.createElement("option", {
-    value: "Hesinki, Finland"
+    value: "Hesinki"
   }, "Hesinki, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Turku, Finland"
+    value: "Turku"
   }, "Turku, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Oulu, Finland"
+    value: "Oulu"
   }, "Oulu, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Vaasa, Finland"
+    value: "Vaasa"
   }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "Add guest",
+    onClick: props.toggleGuest,
     className: "add_guest"
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
@@ -28588,6 +28589,27 @@ function Popup(props) {
 ;
 var _default = Popup;
 exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"components/Guest.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Guest(props) {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "Add_guest"
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Adults"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 13 or above")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Children"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 2-12")));
+}
+
+;
+var _default = Guest;
+exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"components/Main.js":[function(require,module,exports) {
 "use strict";
 
@@ -28604,7 +28626,9 @@ var _stays = _interopRequireDefault(require("./stays.json"));
 
 var _Header = _interopRequireDefault(require("./Header.js"));
 
-var _Popup = _interopRequireDefault(require("./Popup"));
+var _Popup = _interopRequireDefault(require("./Popup.js"));
+
+var _Guest = _interopRequireDefault(require("./Guest.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28625,18 +28649,27 @@ function Main() {
     setIsOpen(!isOpen);
   };
 
+  const [addguest, setAddguest] = (0, _react.useState)(false);
+
+  const toggleGuest = () => {
+    setAddguest(!addguest);
+  };
+
   const [filter, useFilter] = (0, _react.useState)(source);
 
   function HandleFiltering(e) {
-    useFilter(source.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase())); // console.log(filter);
+    useFilter(source.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
   }
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, {
     togglePopup: togglePopup
   }), isOpen && /*#__PURE__*/_react.default.createElement(_Popup.default, {
     HandleFiltering: HandleFiltering,
+    toggleGuest: toggleGuest,
     togglePopup: togglePopup,
     handleClose: togglePopup
+  }), addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
+    toggleGuest: toggleGuest
   })), /*#__PURE__*/_react.default.createElement("main", null, filter.map(item => {
     return /*#__PURE__*/_react.default.createElement("section", {
       key: item.id
@@ -28648,7 +28681,7 @@ function Main() {
 
 var _default = Main;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Element.js":"components/Element.js","./stays.json":"components/stays.json","./Header.js":"components/Header.js","./Popup":"components/Popup.js"}],"components/Footer.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Element.js":"components/Element.js","./stays.json":"components/stays.json","./Header.js":"components/Header.js","./Popup.js":"components/Popup.js","./Guest.js":"components/Guest.js"}],"components/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28718,7 +28751,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60270" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50230" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

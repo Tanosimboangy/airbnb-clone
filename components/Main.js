@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import Element from "./Element.js";
 import stays from "./stays.json";
 import Header from "./Header.js";
-import Popup from "./Popup";
+import Popup from "./Popup.js";
+import Guest from "./Guest.js";
 
 
 function Main() {
@@ -16,17 +17,22 @@ function Main() {
         setIsOpen(!isOpen);
     }
 
+    const [addguest, setAddguest] = useState(false);
+    const toggleGuest = () => {
+        setAddguest(!addguest);
+    }
+
    const [filter, useFilter] = useState(source);
    function HandleFiltering(e) {
         useFilter(source.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
-    // console.log(filter);
    }
 
     return (
         <div>
             <div>
                 <Header togglePopup={togglePopup}/>
-                {isOpen && <Popup HandleFiltering={HandleFiltering} togglePopup={togglePopup} handleClose={togglePopup}/>}
+                {isOpen && <Popup HandleFiltering={HandleFiltering} toggleGuest={toggleGuest} togglePopup={togglePopup} handleClose={togglePopup}/>}
+                {addguest && <Guest toggleGuest={toggleGuest}/>}
             </div>
             <main>
                 {filter.map(item => {
