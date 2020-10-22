@@ -3,7 +3,6 @@ import Element from "./Element.js";
 import stays from "./stays.json";
 import Header from "./Header.js";
 import Popup from "./Popup.js";
-import Guest from "./Guest.js";
 
 
 function Main() {
@@ -30,8 +29,8 @@ function Main() {
     return (
         <div>
             <div>
+                {isOpen && <Popup HandleFiltering={HandleFiltering} toggleGuest={toggleGuest} togglePopup={togglePopup} handleClose={togglePopup} addguest={addguest} toggleGuest={toggleGuest}/>}
                 <Header togglePopup={togglePopup}/>
-                {isOpen && <Popup HandleFiltering={HandleFiltering} toggleGuest={toggleGuest} togglePopup={togglePopup} handleClose={togglePopup}/> || addguest && <Guest toggleGuest={toggleGuest}/>}
             </div>
             <main>
                 {filter.map(item => {

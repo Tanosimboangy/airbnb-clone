@@ -28497,6 +28497,7 @@ function Header(props) {
     style: {
       border: "none"
     },
+    onChange: props.HandleFiltering,
     className: "country",
     id: "country-select"
   }, /*#__PURE__*/_react.default.createElement("option", {
@@ -28533,62 +28534,6 @@ function Header(props) {
 
 var _default = Header;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/Popup.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Popup(props) {
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "box"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Edit your search"), /*#__PURE__*/_react.default.createElement("button", {
-    className: "close-icon",
-    onClick: props.handleClose
-  }, "x"), /*#__PURE__*/_react.default.createElement("select", {
-    name: "country",
-    className: "country",
-    onChange: props.HandleFiltering,
-    id: "country-select"
-  }, /*#__PURE__*/_react.default.createElement("option", {
-    value: "Hesinki"
-  }, "Hesinki, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Turku"
-  }, "Turku, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Oulu"
-  }, "Oulu, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Vaasa"
-  }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    placeholder: "Add guest",
-    onChange: props.toggleGuest,
-    className: "add_guest"
-  }), /*#__PURE__*/_react.default.createElement("button", {
-    type: "button",
-    className: "search"
-  }, /*#__PURE__*/_react.default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    height: "24",
-    viewBox: "0 0 24 24",
-    width: "24",
-    fill: "white"
-  }, /*#__PURE__*/_react.default.createElement("path", {
-    d: "M0 0h24v24H0z",
-    fill: "none"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-  })), /*#__PURE__*/_react.default.createElement("span", null, "Search")));
-}
-
-;
-var _default = Popup;
-exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"components/Guest.js":[function(require,module,exports) {
 "use strict";
 
@@ -28607,7 +28552,7 @@ function Guest(props) {
   const [countAdd, setCountAdd] = (0, _react.useState)(0);
   const [countChild, setCountChild] = (0, _react.useState)(0);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "box"
+    className: "popup_guest"
   }, /*#__PURE__*/_react.default.createElement("h1", null, "Add new Guests"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Adults"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 13 or above"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'flex',
@@ -28636,7 +28581,80 @@ function Guest(props) {
 ;
 var _default = Guest;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/Main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"components/Popup.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Guest = _interopRequireDefault(require("./Guest.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Popup(props) {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "box",
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "box_firstEl",
+    style: {
+      display: 'flex',
+      flexDirection: 'row'
+    }
+  }, /*#__PURE__*/_react.default.createElement("p", null, "Edit your search"), /*#__PURE__*/_react.default.createElement("button", {
+    className: "close-icon",
+    onClick: props.handleClose
+  }, "x")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "popup_form"
+  }, /*#__PURE__*/_react.default.createElement("select", {
+    name: "country",
+    className: "country",
+    onChange: props.HandleFiltering,
+    id: "country-select"
+  }, /*#__PURE__*/_react.default.createElement("option", {
+    value: "Helsinki"
+  }, "Helsinki, Finland"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Turku"
+  }, "Turku, Finland"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Oulu"
+  }, "Oulu, Finland"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Vaasa"
+  }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    placeholder: "Add guest",
+    onChange: props.toggleGuest,
+    className: "add_guest"
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    type: "button",
+    className: "search"
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24",
+    fill: "white"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+  })), /*#__PURE__*/_react.default.createElement("span", null, "Search"))), /*#__PURE__*/_react.default.createElement("div", null, props.addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
+    toggleGuest: props.toggleGuest
+  })));
+}
+
+;
+var _default = Popup;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js"}],"components/Main.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28653,8 +28671,6 @@ var _stays = _interopRequireDefault(require("./stays.json"));
 var _Header = _interopRequireDefault(require("./Header.js"));
 
 var _Popup = _interopRequireDefault(require("./Popup.js"));
-
-var _Guest = _interopRequireDefault(require("./Guest.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28687,15 +28703,15 @@ function Main() {
     useFilter(source.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
   }
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, {
-    togglePopup: togglePopup
-  }), isOpen && /*#__PURE__*/_react.default.createElement(_Popup.default, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, isOpen && /*#__PURE__*/_react.default.createElement(_Popup.default, {
     HandleFiltering: HandleFiltering,
     toggleGuest: toggleGuest,
     togglePopup: togglePopup,
-    handleClose: togglePopup
-  }) || addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
+    handleClose: togglePopup,
+    addguest: addguest,
     toggleGuest: toggleGuest
+  }), /*#__PURE__*/_react.default.createElement(_Header.default, {
+    togglePopup: togglePopup
   })), /*#__PURE__*/_react.default.createElement("main", null, filter.map(item => {
     return /*#__PURE__*/_react.default.createElement("section", {
       key: item.id
@@ -28707,7 +28723,7 @@ function Main() {
 
 var _default = Main;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Element.js":"components/Element.js","./stays.json":"components/stays.json","./Header.js":"components/Header.js","./Popup.js":"components/Popup.js","./Guest.js":"components/Guest.js"}],"components/Footer.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Element.js":"components/Element.js","./stays.json":"components/stays.json","./Header.js":"components/Header.js","./Popup.js":"components/Popup.js"}],"components/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

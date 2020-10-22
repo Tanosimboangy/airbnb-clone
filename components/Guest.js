@@ -5,7 +5,7 @@ function Guest(props) {
     const [countChild, setCountChild] = useState(0);
 
     return (
-        <div className="box">
+        <div className="popup_guest">
             <h1>Add new Guests</h1>
             <div>
                 <h2>
