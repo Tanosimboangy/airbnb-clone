@@ -10,9 +10,9 @@ function Guest(props) {
                 </h2>
                 <p>Ages 13 or above</p>
                 <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', maxWidth:'70px'}}>
-                    <button onClick={props.HandleFilteringGuest}  onClick={() => props.setCountAdd((currentCountAdd) => currentCountAdd - 1)}>-</button>
+                    <button onClick={props.GuestNumbers}  onClick={() => props.setCountAdd((currentCountAdd) => currentCountAdd - 1)}>-</button>
                     <b>{props.countAdd}</b>
-                    <button onClick={props.HandleFilteringGuest}  onClick={() => props.setCountAdd((currentCountAdd) => currentCountAdd + 1)}>+</button>
+                    <button onClick={props.GuestNumbers}  onClick={() => props.setCountAdd((currentCountAdd) => currentCountAdd + 1)}>+</button>
                 </div>
             </div>
             <div>
@@ -21,9 +21,9 @@ function Guest(props) {
                 </h2>
                 <p>Ages 2-12</p>
                 <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', maxWidth:'70px'}}>
-                    <button onClick={props.HandleFilteringGuest}  onClick={() => props.setCountChild((currentCountChild) => currentCountChild - 1)}>-</button>
+                    <button onClick={props.GuestNumbers}  onClick={() => props.setCountChild((currentCountChild) => currentCountChild - 1)}>-</button>
                     <b>{props.countChild}</b>
-                    <button onClick={props.HandleFilteringGuest}  onClick={() => props.setCountChild((currentCountChild) => currentCountChild + 1)}>+</button>
+                    <button onClick={props.GuestNumbers}  onClick={() => props.setCountChild((currentCountChild) => currentCountChild + 1)}>+</button>
                 </div>
             </div>
         </div>

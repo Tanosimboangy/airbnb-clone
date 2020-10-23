@@ -28,7 +28,7 @@ function Popup(props) {
         setCountAdd={props.setCountAdd} 
         countChild={props.countChild} 
         setCountChild={props.setCountChild}
-        HandleFilteringGuest={props.HandleFilteringGuest} 
+        GuestNumbers={props.GuestNumbers} 
         />}
         </div>
       </div>
