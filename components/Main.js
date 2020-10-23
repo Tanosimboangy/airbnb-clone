@@ -25,15 +25,14 @@ function Main() {
     const [countChild, setCountChild] = useState(0);
     let guestTotal = countAdd + countChild;
     
-    // const [filterGuest, useFilterGuest] = useState(source);
-    const GuestNumbers = setAllStays(allStays.filter(guest => guest.maxGuests >= guestTotal));
+    
+    function HandleFiltering(e) {
+        setAllStays(GuestNumbers.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
+    }
+    
+    const GuestNumbers = allStays.filter(guest => guest.maxGuests >= guestTotal);
     console.log(GuestNumbers);
     
-    const [filter, useFilter] = useState(GuestNumbers);
-    function HandleFiltering(e) {
-            useFilter(filter.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
-    }
-
     return (
         <div>
             <div>
@@ -54,7 +53,7 @@ function Main() {
                 <Header togglePopup={togglePopup}/>
             </div>
             <main>
-                {filter.map(item => {
+                {GuestNumbers.map(item => {
                     return (
                         <section key={item.id}>
                             <Element item={item}/>  
@@ -64,10 +63,3 @@ function Main() {
         </div>
     )}
 export default Main;
-
-{/* <div>
-    <ul>
-        <li><h2>Stays in Finland</h2></li>
-        <li><p>{source.city} + stays</p></li>
-    </ul>
-</div> */}

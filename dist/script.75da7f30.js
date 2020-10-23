@@ -28710,16 +28710,14 @@ function Main() {
 
   const [countAdd, setCountAdd] = (0, _react.useState)(0);
   const [countChild, setCountChild] = (0, _react.useState)(0);
-  let guestTotal = countAdd + countChild; // const [filterGuest, useFilterGuest] = useState(source);
-
-  const GuestNumbers = setAllStays(allStays.filter(guest => guest.maxGuests >= guestTotal));
-  console.log(GuestNumbers);
-  const [filter, useFilter] = (0, _react.useState)(GuestNumbers);
+  let guestTotal = countAdd + countChild;
 
   function HandleFiltering(e) {
-    useFilter(filter.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
+    setAllStays(GuestNumbers.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
   }
 
+  const GuestNumbers = allStays.filter(guest => guest.maxGuests >= guestTotal);
+  console.log(GuestNumbers);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, isOpen && /*#__PURE__*/_react.default.createElement(_Popup.default, {
     HandleFiltering: HandleFiltering,
     toggleGuest: toggleGuest,
@@ -28735,7 +28733,7 @@ function Main() {
     guestTotal: guestTotal
   }), /*#__PURE__*/_react.default.createElement(_Header.default, {
     togglePopup: togglePopup
-  })), /*#__PURE__*/_react.default.createElement("main", null, filter.map(item => {
+  })), /*#__PURE__*/_react.default.createElement("main", null, GuestNumbers.map(item => {
     return /*#__PURE__*/_react.default.createElement("section", {
       key: item.id
     }, /*#__PURE__*/_react.default.createElement(_Element.default, {
@@ -28746,14 +28744,6 @@ function Main() {
 
 var _default = Main;
 exports.default = _default;
-{
-  /* <div>
-     <ul>
-         <li><h2>Stays in Finland</h2></li>
-         <li><p>{source.city} + stays</p></li>
-     </ul>
-  </div> */
-}
 },{"react":"node_modules/react/index.js","./Element.js":"components/Element.js","./stays.json":"components/stays.json","./Header.js":"components/Header.js","./Popup.js":"components/Popup.js"}],"components/Footer.js":[function(require,module,exports) {
 "use strict";
 
@@ -28817,7 +28807,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49887" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57619" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
