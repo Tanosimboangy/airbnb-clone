@@ -28736,7 +28736,6 @@ function Popup(props) {
     onChange: props.toggleGuest
   }, props.guestTotal), /*#__PURE__*/_react.default.createElement(_Guest.default, null)), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    className: "search",
     onClick: props.handleClose
   }, /*#__PURE__*/_react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
