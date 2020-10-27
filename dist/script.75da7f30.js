@@ -28619,20 +28619,11 @@ function Popup(props) {
     onClick: props.handleClose
   }, "x")), /*#__PURE__*/_react.default.createElement("div", {
     className: "popup_form"
-  }, /*#__PURE__*/_react.default.createElement("select", {
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
     name: "country",
-    className: "country",
-    onChange: props.HandleFiltering,
-    id: "country-select"
-  }, /*#__PURE__*/_react.default.createElement("option", {
-    value: "Helsinki"
-  }, "Helsinki, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Turku"
-  }, "Turku, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Oulu"
-  }, "Oulu, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Vaasa"
-  }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
+    className: "country"
+  }), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     value: props.guestTotal,
     placeholder: "Add guest",
@@ -28640,7 +28631,8 @@ function Popup(props) {
     className: "add_guest"
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    className: "search"
+    className: "search",
+    onClick: props.HandleFiltering
   }, /*#__PURE__*/_react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     height: "24",
@@ -28652,7 +28644,7 @@ function Popup(props) {
     fill: "none"
   }), /*#__PURE__*/_react.default.createElement("path", {
     d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-  })), /*#__PURE__*/_react.default.createElement("span", null, "Search"))), /*#__PURE__*/_react.default.createElement("div", null, props.addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
+  })), "Search")), /*#__PURE__*/_react.default.createElement("div", null, props.addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
     toggleGuest: props.toggleGuest,
     countAdd: props.countAdd,
     setCountAdd: props.setCountAdd,
@@ -28807,7 +28799,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57619" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54529" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
