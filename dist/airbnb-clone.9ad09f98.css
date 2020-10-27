@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 p {
     margin: 0;
@@ -85,6 +86,12 @@ header form button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.popup_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
 }
 .lists ul {
     display: flex;

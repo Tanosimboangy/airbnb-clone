@@ -28552,10 +28552,8 @@ function Guest(props) {
       maxWidth: '70px'
     }
   }, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: props.GuestNumbers,
     onClick: () => props.setCountAdd(currentCountAdd => currentCountAdd - 1)
   }, "-"), /*#__PURE__*/_react.default.createElement("b", null, props.countAdd), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: props.GuestNumbers,
     onClick: () => props.setCountAdd(currentCountAdd => currentCountAdd + 1)
   }, "+"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Children"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 2-12"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
@@ -28700,18 +28698,6 @@ var _InputSelect = _interopRequireDefault(require("./InputSelect.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Popup(props) {
-  //HandleFiltering={HandleFiltering} 
-  // toggleGuest={toggleGuest} 
-  // togglePopup={togglePopup} 
-  // handleClose={togglePopup} 
-  // addguest={addguest} 
-  // toggleGuest={toggleGuest}
-  // countAdd={countAdd} 
-  // setCountAdd={setCountAdd} 
-  // countChild={countChild} 
-  // setCountChild={setCountChild} 
-  // GuestNumbers={GuestNumbers}
-  // guestTotal={guestTotal} 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "box"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -28734,7 +28720,16 @@ function Popup(props) {
     handleClose: props.togglePopup
   })), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
     onChange: props.toggleGuest
-  }, props.guestTotal), /*#__PURE__*/_react.default.createElement(_Guest.default, null)), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
+  }, props.guestTotal), /*#__PURE__*/_react.default.createElement(_Guest.default, null), props.addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
+    addguest: props.addguest,
+    guestTotal: props.guestTotal,
+    toggleGuest: props.toggleGuest,
+    countAdd: props.countAdd,
+    setCountAdd: props.setCountAdd,
+    countChild: props.countChild,
+    setCountChild: props.setCountChild,
+    GuestNumbers: props.GuestNumbers
+  })), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: props.handleClose
   }, /*#__PURE__*/_react.default.createElement("svg", {

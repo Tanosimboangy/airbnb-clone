@@ -3,18 +3,6 @@ import Guest from "./Guest.js";
 import InputSelect from "./InputSelect.js";
 
 function Popup(props) {
-  //HandleFiltering={HandleFiltering} 
-  // toggleGuest={toggleGuest} 
-  // togglePopup={togglePopup} 
-  // handleClose={togglePopup} 
-  // addguest={addguest} 
-  // toggleGuest={toggleGuest}
-  // countAdd={countAdd} 
-  // setCountAdd={setCountAdd} 
-  // countChild={countChild} 
-  // setCountChild={setCountChild} 
-  // GuestNumbers={GuestNumbers}
-  // guestTotal={guestTotal} 
   return (
       <div className="box">
         <div className="popup_header">
@@ -39,7 +27,7 @@ function Popup(props) {
             <li>
               <button onChange={props.toggleGuest}>{props.guestTotal}</button>
               <Guest />
-              {/* {props.addguest && <Guest 
+              {props.addguest && <Guest 
                 addguest={props.addguest} 
                 guestTotal={props.guestTotal} 
                 toggleGuest={props.toggleGuest}
@@ -48,7 +36,7 @@ function Popup(props) {
                 countChild={props.countChild} 
                 setCountChild={props.setCountChild}
                 GuestNumbers={props.GuestNumbers} 
-              />} */}
+              />}
             </li>
             <li>
               <button type="button" onClick={props.handleClose}>
