@@ -37,10 +37,11 @@ header h1 {
     left: 11px;
 }
 form {
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    max-width: 400px;
+    margin: auto;
     padding: 1rem;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
@@ -80,6 +81,11 @@ header form button {
 .container img {
     max-width: 100%;
     border-radius: 24px;
+}
+.popup_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .lists ul {
     display: flex;
@@ -130,16 +136,6 @@ li {
 main {
     padding-top: 35px;
 }
-@media (min-width: 500px) {
-    .popup_form {
-        display: flex;
-        flex-direction: row;
-        align-items: stretch;
-        border: 1px solid black;
-        border-radius: 16px;
-    }
-}
-
 @media (min-width: 720px) {
     body {
         max-width: 90%;

@@ -28497,23 +28497,13 @@ function Header(props) {
     fillOpacity: "0.8"
   })))), /*#__PURE__*/_react.default.createElement("form", {
     onClick: props.togglePopup
-  }, /*#__PURE__*/_react.default.createElement("select", {
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    placeholder: "Choose one list",
     name: "country",
-    style: {
-      border: "none"
-    },
     onChange: props.HandleFiltering,
     className: "country",
-    id: "country-select"
-  }, /*#__PURE__*/_react.default.createElement("option", {
-    value: "Hesinki, Finland"
-  }, "Hesinki, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Turku, Finland"
-  }, "Turku, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Oulu, Finland"
-  }, "Oulu, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Vaasa, Finland"
-  }, "Vaasa, Finland")), /*#__PURE__*/_react.default.createElement("input", {
+    type: "text"
+  }), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "Add guest",
     className: "add_guest"
@@ -28586,6 +28576,113 @@ function Guest(props) {
 ;
 var _default = Guest;
 exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"components/InputSelect.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = InputSelect;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function InputSelect(props) {
+  return /*#__PURE__*/_react.default.createElement("ul", {
+    style: {
+      display: 'flex',
+      padding: '0',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignContent: 'space-between'
+    }
+  }, /*#__PURE__*/_react.default.createElement("li", {
+    onClick: props.HandleFiltering,
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingBlockStart: '1rem',
+      paddingBlockEnd: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    style: {
+      paddingInlineEnd: '2rem'
+    },
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+  })), /*#__PURE__*/_react.default.createElement("p", null, "Helsinki, Finland")), /*#__PURE__*/_react.default.createElement("li", {
+    onClick: props.HandleFiltering,
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingBlockStart: '1rem',
+      paddingBlockEnd: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    style: {
+      paddingInlineEnd: '2rem'
+    },
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+  })), /*#__PURE__*/_react.default.createElement("p", null, "Turku, Finland")), /*#__PURE__*/_react.default.createElement("li", {
+    onClick: props.HandleFiltering,
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingBlockStart: '1rem',
+      paddingBlockEnd: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    style: {
+      paddingInlineEnd: '2rem'
+    },
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+  })), /*#__PURE__*/_react.default.createElement("p", null, "Oulu, Finland")), /*#__PURE__*/_react.default.createElement("li", {
+    onClick: props.HandleFiltering,
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingBlockStart: '1rem',
+      paddingBlockEnd: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    style: {
+      paddingInlineEnd: '2rem'
+    },
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+  })), /*#__PURE__*/_react.default.createElement("p", null, "Vaasa, Finland")));
+}
 },{"react":"node_modules/react/index.js"}],"components/Popup.js":[function(require,module,exports) {
 "use strict";
 
@@ -28598,41 +28695,49 @@ var _react = _interopRequireDefault(require("react"));
 
 var _Guest = _interopRequireDefault(require("./Guest.js"));
 
+var _InputSelect = _interopRequireDefault(require("./InputSelect.js"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Popup(props) {
+  //HandleFiltering={HandleFiltering} 
+  // toggleGuest={toggleGuest} 
+  // togglePopup={togglePopup} 
+  // handleClose={togglePopup} 
+  // addguest={addguest} 
+  // toggleGuest={toggleGuest}
+  // countAdd={countAdd} 
+  // setCountAdd={setCountAdd} 
+  // countChild={countChild} 
+  // setCountChild={setCountChild} 
+  // GuestNumbers={GuestNumbers}
+  // guestTotal={guestTotal} 
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "box",
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      padding: '1rem'
-    }
+    className: "box"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "box_firstEl",
-    style: {
-      display: 'flex',
-      flexDirection: 'row'
-    }
+    className: "popup_header"
   }, /*#__PURE__*/_react.default.createElement("p", null, "Edit your search"), /*#__PURE__*/_react.default.createElement("button", {
     className: "close-icon",
     onClick: props.handleClose
   }, "x")), /*#__PURE__*/_react.default.createElement("div", {
     className: "popup_form"
-  }, /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("ul", {
+    className: "popup_container"
+  }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     name: "country",
     className: "country"
-  }), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    value: props.guestTotal,
-    placeholder: "Add guest",
-    onChange: props.toggleGuest,
-    className: "add_guest"
-  }), /*#__PURE__*/_react.default.createElement("button", {
+  }), /*#__PURE__*/_react.default.createElement(_InputSelect.default, {
+    HandleFiltering: props.HandleFiltering,
+    toggleGuest: props.toggleGuest,
+    togglePopup: props.togglePopup,
+    handleClose: props.togglePopup
+  })), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
+    onChange: props.toggleGuest
+  }, props.guestTotal), /*#__PURE__*/_react.default.createElement(_Guest.default, null)), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     className: "search",
-    onClick: props.HandleFiltering
+    onClick: props.handleClose
   }, /*#__PURE__*/_react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     height: "24",
@@ -28644,20 +28749,13 @@ function Popup(props) {
     fill: "none"
   }), /*#__PURE__*/_react.default.createElement("path", {
     d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-  })), "Search")), /*#__PURE__*/_react.default.createElement("div", null, props.addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
-    toggleGuest: props.toggleGuest,
-    countAdd: props.countAdd,
-    setCountAdd: props.setCountAdd,
-    countChild: props.countChild,
-    setCountChild: props.setCountChild,
-    GuestNumbers: props.GuestNumbers
-  })));
+  })), "Search")))));
 }
 
 ;
 var _default = Popup;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js"}],"components/Main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js","./InputSelect.js":"components/InputSelect.js"}],"components/Main.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
