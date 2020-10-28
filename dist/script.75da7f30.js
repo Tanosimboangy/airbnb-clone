@@ -28502,11 +28502,17 @@ function Header(props) {
     name: "country",
     onChange: props.HandleFiltering,
     className: "country",
-    type: "text"
+    type: "text",
+    style: {
+      cursor: 'pointer'
+    }
   }), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "Add guest",
-    className: "add_guest"
+    className: "add_guest",
+    style: {
+      cursor: 'pointer'
+    }
   }), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     style: {
@@ -28529,51 +28535,6 @@ function Header(props) {
 
 var _default = Header;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/Guest.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Guest(props) {
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "popup_guest"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Add new Guests"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Adults"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 13 or above"), /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      maxWidth: '70px'
-    }
-  }, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => props.setCountAdd(currentCountAdd => currentCountAdd - 1)
-  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, props.countAdd), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => props.setCountAdd(currentCountAdd => currentCountAdd + 1)
-  }, "+"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Children"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 2-12"), /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      maxWidth: '70px'
-    }
-  }, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: props.GuestNumbers,
-    onClick: () => props.setCountChild(currentCountChild => currentCountChild - 1)
-  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, props.countChild), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: props.GuestNumbers,
-    onClick: () => props.setCountChild(currentCountChild => currentCountChild + 1)
-  }, "+"))));
-}
-
-;
-var _default = Guest;
-exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"components/InputSelect.js":[function(require,module,exports) {
 "use strict";
 
@@ -28586,100 +28547,18 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function InputSelect(props) {
+function InputSelect({
+  HandleFiltering
+}) {
   return /*#__PURE__*/_react.default.createElement("ul", {
     style: {
       display: 'flex',
-      padding: '0',
+      padding: "0",
       flexDirection: 'column',
       justifyContent: 'space-between',
       alignContent: 'space-between'
     }
-  }, /*#__PURE__*/_react.default.createElement("li", {
-    onClick: props.HandleFiltering,
-    style: {
-      display: 'flex',
-      flexDirection: 'row',
-      paddingBlockStart: '1rem',
-      paddingBlockEnd: '1rem'
-    }
-  }, /*#__PURE__*/_react.default.createElement("svg", {
-    style: {
-      paddingInlineEnd: '2rem'
-    },
-    xmlns: "http://www.w3.org/2000/svg",
-    height: "24",
-    viewBox: "0 0 24 24",
-    width: "24"
-  }, /*#__PURE__*/_react.default.createElement("path", {
-    d: "M0 0h24v24H0z",
-    fill: "none"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-  })), /*#__PURE__*/_react.default.createElement("p", null, "Helsinki, Finland")), /*#__PURE__*/_react.default.createElement("li", {
-    onClick: props.HandleFiltering,
-    style: {
-      display: 'flex',
-      flexDirection: 'row',
-      paddingBlockStart: '1rem',
-      paddingBlockEnd: '1rem'
-    }
-  }, /*#__PURE__*/_react.default.createElement("svg", {
-    style: {
-      paddingInlineEnd: '2rem'
-    },
-    xmlns: "http://www.w3.org/2000/svg",
-    height: "24",
-    viewBox: "0 0 24 24",
-    width: "24"
-  }, /*#__PURE__*/_react.default.createElement("path", {
-    d: "M0 0h24v24H0z",
-    fill: "none"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-  })), /*#__PURE__*/_react.default.createElement("p", null, "Turku, Finland")), /*#__PURE__*/_react.default.createElement("li", {
-    onClick: props.HandleFiltering,
-    style: {
-      display: 'flex',
-      flexDirection: 'row',
-      paddingBlockStart: '1rem',
-      paddingBlockEnd: '1rem'
-    }
-  }, /*#__PURE__*/_react.default.createElement("svg", {
-    style: {
-      paddingInlineEnd: '2rem'
-    },
-    xmlns: "http://www.w3.org/2000/svg",
-    height: "24",
-    viewBox: "0 0 24 24",
-    width: "24"
-  }, /*#__PURE__*/_react.default.createElement("path", {
-    d: "M0 0h24v24H0z",
-    fill: "none"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-  })), /*#__PURE__*/_react.default.createElement("p", null, "Oulu, Finland")), /*#__PURE__*/_react.default.createElement("li", {
-    onClick: props.HandleFiltering,
-    style: {
-      display: 'flex',
-      flexDirection: 'row',
-      paddingBlockStart: '1rem',
-      paddingBlockEnd: '1rem'
-    }
-  }, /*#__PURE__*/_react.default.createElement("svg", {
-    style: {
-      paddingInlineEnd: '2rem'
-    },
-    xmlns: "http://www.w3.org/2000/svg",
-    height: "24",
-    viewBox: "0 0 24 24",
-    width: "24"
-  }, /*#__PURE__*/_react.default.createElement("path", {
-    d: "M0 0h24v24H0z",
-    fill: "none"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-  })), /*#__PURE__*/_react.default.createElement("p", null, "Vaasa, Finland")));
+  });
 }
 },{"react":"node_modules/react/index.js"}],"components/Popup.js":[function(require,module,exports) {
 "use strict";
@@ -28691,12 +28570,11 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _Guest = _interopRequireDefault(require("./Guest.js"));
-
 var _InputSelect = _interopRequireDefault(require("./InputSelect.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import Guest from "./Guest.js";
 function Popup(props) {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "box"
@@ -28712,23 +28590,13 @@ function Popup(props) {
   }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     name: "country",
-    className: "country"
+    className: "country",
+    onChange: props.HandleFiltering
   }), /*#__PURE__*/_react.default.createElement(_InputSelect.default, {
     HandleFiltering: props.HandleFiltering,
     toggleGuest: props.toggleGuest,
     togglePopup: props.togglePopup,
     handleClose: props.togglePopup
-  })), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
-    onChange: props.toggleGuest
-  }, props.guestTotal), /*#__PURE__*/_react.default.createElement(_Guest.default, null), props.addguest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
-    addguest: props.addguest,
-    guestTotal: props.guestTotal,
-    toggleGuest: props.toggleGuest,
-    countAdd: props.countAdd,
-    setCountAdd: props.setCountAdd,
-    countChild: props.countChild,
-    setCountChild: props.setCountChild,
-    GuestNumbers: props.GuestNumbers
   })), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: props.handleClose
@@ -28749,7 +28617,7 @@ function Popup(props) {
 ;
 var _default = Popup;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js","./InputSelect.js":"components/InputSelect.js"}],"components/Main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./InputSelect.js":"components/InputSelect.js"}],"components/Main.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28795,26 +28663,18 @@ function Main() {
   const [countAdd, setCountAdd] = (0, _react.useState)(0);
   const [countChild, setCountChild] = (0, _react.useState)(0);
   let guestTotal = countAdd + countChild;
+  const GuestNumbers = allStays.filter(guest => guest.maxGuests >= guestTotal);
 
   function HandleFiltering(e) {
     setAllStays(GuestNumbers.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
+    console.log(GuestNumbers);
   }
 
-  const GuestNumbers = allStays.filter(guest => guest.maxGuests >= guestTotal);
-  console.log(GuestNumbers);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, isOpen && /*#__PURE__*/_react.default.createElement(_Popup.default, {
     HandleFiltering: HandleFiltering,
     toggleGuest: toggleGuest,
     togglePopup: togglePopup,
-    handleClose: togglePopup,
-    addguest: addguest,
-    toggleGuest: toggleGuest,
-    countAdd: countAdd,
-    setCountAdd: setCountAdd,
-    countChild: countChild,
-    setCountChild: setCountChild,
-    GuestNumbers: GuestNumbers,
-    guestTotal: guestTotal
+    handleClose: togglePopup
   }), /*#__PURE__*/_react.default.createElement(_Header.default, {
     togglePopup: togglePopup
   })), /*#__PURE__*/_react.default.createElement("main", null, GuestNumbers.map(item => {
@@ -28891,7 +28751,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54529" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60615" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

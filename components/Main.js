@@ -26,29 +26,22 @@ function Main() {
     let guestTotal = countAdd + countChild;
     
     
+    const GuestNumbers = allStays.filter(guest => guest.maxGuests >= guestTotal);
+    
     function HandleFiltering(e) {
         setAllStays(GuestNumbers.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
+        console.log(GuestNumbers);
     }
     
-    const GuestNumbers = allStays.filter(guest => guest.maxGuests >= guestTotal);
-    console.log(GuestNumbers);
     
     return (
         <div>
             <div>
                 {isOpen && <Popup 
-                HandleFiltering={HandleFiltering} 
-                toggleGuest={toggleGuest} 
-                togglePopup={togglePopup} 
-                handleClose={togglePopup} 
-                addguest={addguest} 
-                toggleGuest={toggleGuest}
-                countAdd={countAdd} 
-                setCountAdd={setCountAdd} 
-                countChild={countChild} 
-                setCountChild={setCountChild} 
-                GuestNumbers={GuestNumbers}
-                guestTotal={guestTotal} 
+                    HandleFiltering={HandleFiltering} 
+                    toggleGuest={toggleGuest} 
+                    togglePopup={togglePopup} 
+                    handleClose={togglePopup}
                 />}
                 <Header togglePopup={togglePopup}/>
             </div>
