@@ -28560,6 +28560,26 @@ function Guest({
   guestTotal,
   GuestNumbers
 }) {
+  function handleCountAddDecrement() {
+    if (countAdd > 0) {
+      setCountAdd(prev => prev - 1);
+    }
+  }
+
+  function handleCountAddIncrement() {
+    setCountAdd(prev => prev + 1);
+  }
+
+  function handleCountChildDecrement() {
+    if (countChild > 0) {
+      setCountChild(prev => prev - 1);
+    }
+  }
+
+  function handleCountChildIncrement() {
+    setCountChild(prev => prev + 1);
+  }
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "popup_guest"
   }, /*#__PURE__*/_react.default.createElement("h1", null, "Add new Guests"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Adults"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 13 or above"), /*#__PURE__*/_react.default.createElement("div", {
@@ -28570,9 +28590,9 @@ function Guest({
       maxWidth: '70px'
     }
   }, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => setCountAdd(currentCountAdd => currentCountAdd - 1)
+    onClick: handleCountAddDecrement
   }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countAdd), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => setCountAdd(currentCountAdd => currentCountAdd + 1)
+    onClick: handleCountAddIncrement
   }, "+"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Children"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 2-12"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'flex',
@@ -28582,10 +28602,10 @@ function Guest({
     }
   }, /*#__PURE__*/_react.default.createElement("button", {
     onClick: GuestNumbers,
-    onClick: () => setCountChild(currentCountChild => currentCountChild - 1)
+    onClick: handleCountChildDecrement
   }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countChild), /*#__PURE__*/_react.default.createElement("button", {
     onClick: GuestNumbers,
-    onClick: () => setCountChild(currentCountChild => currentCountChild + 1)
+    onClick: handleCountChildIncrement
   }, "+"))));
 }
 
@@ -28816,7 +28836,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65317" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50740" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
