@@ -24,7 +24,7 @@ function Guest({HandleFiltering, handleClose, addguest, setAddguest, toggleGuest
             <div>
                 <h2>Adults</h2>
                 <p>Ages 13 or above</p>
-                <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', maxWidth:'70px'}}>
+                <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', maxWidth:'100px'}}>
                     <button onClick={handleCountAddDecrement}>-</button>
                     <b>{countAdd}</b>
                     <button onClick={handleCountAddIncrement}>+</button>
@@ -33,7 +33,7 @@ function Guest({HandleFiltering, handleClose, addguest, setAddguest, toggleGuest
             <div>
                 <h2>Children</h2>
                 <p>Ages 2-12</p>
-                <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', maxWidth:'70px'}}>
+                <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', maxWidth:'100px'}}>
                     <button onClick={GuestNumbers}  onClick={handleCountChildDecrement}>-</button>
                     <b>{countChild}</b>
                     <button onClick={GuestNumbers}  onClick={handleCountChildIncrement}>+</button>

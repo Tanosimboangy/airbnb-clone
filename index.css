@@ -12,10 +12,10 @@ header h1 {
     padding-left: 13px;
 }
 .box {
-    background-color: white;
+    background-color: sandybrown;
     position: fixed;
     top: 0;
-    height: 70%;
+    height: 80%;
     width: 100vw;
     border-radius: 1rem;
 }
@@ -39,7 +39,7 @@ header h1 {
 form {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     max-width: 400px;
     margin: auto;
     padding: 1rem;
@@ -59,6 +59,7 @@ header form select {
 input:focus, textarea:focus, select:focus, button:focus {
     outline: none;
 }
+
 header form input {
     font-style: normal;
     font-weight: normal;
@@ -71,8 +72,26 @@ header form input {
     border-left: 1px solid #F2F2F2;
     border-right: 1px solid #F2F2F2;
 }
+header form {
+    padding: 0;
+}
 header form button {
-    padding-left: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    padding: 20px 22px;
+}
+header form button:first-of-type {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+header form button:nth-of-type(2) {
+    border-right: 1px solid #F2F2F2;
+    border-left: 1px solid #F2F2F2;
+}
+header form button:last-of-type {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
 }
 .container {
     padding-left: 12px;
@@ -86,12 +105,31 @@ header form button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-inline-start: 10px;
+    padding-inline-end: 1rem;
+    margin-inline-end: 1rem;
 }
+/* .popup_container li:first-of-type input {
+    padding: 12px 15px;
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+.guestButton {
+    background-color: white;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    width: 100%;
+} */
 .popup_header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 1rem;
+    margin: 1rem;
 }
 .lists ul {
     display: flex;
@@ -142,25 +180,16 @@ li {
 main {
     padding-top: 35px;
 }
+
 @media (min-width: 720px) {
-    body {
-        max-width: 90%;
-        margin: auto;
-    }
     header {
-        padding-top: 32px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
-    }
-    header h1 {
-        padding-left: 0;
-        padding-top: 0;
+        justify-content: space-evenly;
+        padding-top: 20px;
     }
     main {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
-

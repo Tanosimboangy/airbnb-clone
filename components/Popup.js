@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import Guest from "./Guest.js";
-// import InputSelect from "./InputSelect.js";
+import Input from "./Input";
 
 function Popup({HandleFiltering, handleClose, addguest, setAddguest, toggleGuest, countAdd, setCountAdd, countChild, setCountChild, guestTotal, GuestNumbers}) {
+    const [showGuest, setShowGuest] = useState(false);
+    function handleShowGuest() {
+      setShowGuest(!showGuest)
+    }
     return (
       <div className="box">
         <div className="popup_header">
@@ -12,15 +16,14 @@ function Popup({HandleFiltering, handleClose, addguest, setAddguest, toggleGuest
         <div className="popup_form">
           <ul className="popup_container">
             <li>
-              <select onChange={HandleFiltering}>
-                <option value="Helsinki">Helsinki, Finland</option>
-                <option value="Turku">Turku, Finland</option>
-                <option value="Oulu">Oulu, Finland</option>
-                <option value="vaasa">Vaasa, Finland</option>
-              </select>
+              <Input 
+                 HandleFiltering={HandleFiltering} 
+                 handleClose={handleClose} 
+              />
             </li>
             <li>
-              <button onChange={toggleGuest}>{guestTotal}</button>
+              <button onClick={handleShowGuest} className="guestButton" onChange={toggleGuest}>{guestTotal} guests</button>
+              {showGuest && 
               <Guest
               HandleFiltering={HandleFiltering} 
               handleClose={handleClose} 
@@ -34,16 +37,7 @@ function Popup({HandleFiltering, handleClose, addguest, setAddguest, toggleGuest
               guestTotal={guestTotal} 
               GuestNumbers={GuestNumbers}
               />
-              {/* {addguest && <Guest 
-              addguest={addguest}
-              setAddguest={setAddguest}
-              toggleGuest={toggleGuest}
-              countAdd={countAdd}
-              setCountAdd={setCountAdd}
-              countChild={countChild}
-              setCountChild={setCountChild}
-              guestTotal={guestTotal}
-              />} */}
+              }
             </li>
             <li>
               <button type="button" onClick={handleClose}>

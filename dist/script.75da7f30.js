@@ -28497,23 +28497,21 @@ function Header(props) {
     fillOpacity: "0.8"
   })))), /*#__PURE__*/_react.default.createElement("form", {
     onClick: props.togglePopup
-  }, /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    type: "button",
     placeholder: "Choose one list",
-    name: "country",
     onChange: props.HandleFiltering,
-    className: "country",
-    type: "text",
     style: {
       cursor: 'pointer'
     }
-  }), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
+  }, "LOCATION"), /*#__PURE__*/_react.default.createElement("button", {
+    type: "button",
     placeholder: "Add guest",
     className: "add_guest",
     style: {
       cursor: 'pointer'
     }
-  }), /*#__PURE__*/_react.default.createElement("button", {
+  }, "ADD GUEST"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     style: {
       backgroundColor: "white",
@@ -28587,7 +28585,7 @@ function Guest({
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      maxWidth: '70px'
+      maxWidth: '100px'
     }
   }, /*#__PURE__*/_react.default.createElement("button", {
     onClick: handleCountAddDecrement
@@ -28598,7 +28596,7 @@ function Guest({
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      maxWidth: '70px'
+      maxWidth: '100px'
     }
   }, /*#__PURE__*/_react.default.createElement("button", {
     onClick: GuestNumbers,
@@ -28612,6 +28610,133 @@ function Guest({
 ;
 var _default = Guest;
 exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"components/Input.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = InputSelect;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function InputSelect({
+  HandleFiltering
+}) {
+  const [showList, setShowList] = (0, _react.useState)(false);
+
+  function showLocation() {
+    setShowList(!showList);
+  }
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("input", {
+    onClick: showLocation,
+    type: "text",
+    placeholder: "ADD A LIST"
+  }), showList && /*#__PURE__*/_react.default.createElement("ul", {
+    style: {
+      display: 'flex',
+      padding: "0",
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignContent: 'space-between'
+    }
+  }, /*#__PURE__*/_react.default.createElement("li", {
+    onClick: HandleFiltering,
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingBlockStart: '1rem',
+      paddingBlockEnd: '1rem',
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    style: {
+      paddingInlineEnd: '2rem',
+      cursor: 'pointer'
+    },
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+  })), /*#__PURE__*/_react.default.createElement("p", null, "Helsinki, Finland")), /*#__PURE__*/_react.default.createElement("li", {
+    onClick: HandleFiltering,
+    value: "Turku, Finland",
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingBlockStart: '1rem',
+      paddingBlockEnd: '1rem',
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    style: {
+      paddingInlineEnd: '2rem'
+    },
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+  })), /*#__PURE__*/_react.default.createElement("p", null, "Turku, Finland")), /*#__PURE__*/_react.default.createElement("li", {
+    onClick: HandleFiltering,
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingBlockStart: '1rem',
+      paddingBlockEnd: '1rem',
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    style: {
+      paddingInlineEnd: '2rem'
+    },
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+  })), /*#__PURE__*/_react.default.createElement("p", null, "Oulu, Finland")), /*#__PURE__*/_react.default.createElement("li", {
+    onClick: HandleFiltering,
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingBlockStart: '1rem',
+      paddingBlockEnd: '1rem',
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    style: {
+      paddingInlineEnd: '2rem'
+    },
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+  })), /*#__PURE__*/_react.default.createElement("p", null, "Vaasa, Finland"))));
+}
 },{"react":"node_modules/react/index.js"}],"components/Popup.js":[function(require,module,exports) {
 "use strict";
 
@@ -28620,13 +28745,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _Guest = _interopRequireDefault(require("./Guest.js"));
 
+var _Input = _interopRequireDefault(require("./Input"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import InputSelect from "./InputSelect.js";
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 function Popup({
   HandleFiltering,
   handleClose,
@@ -28640,6 +28770,12 @@ function Popup({
   guestTotal,
   GuestNumbers
 }) {
+  const [showGuest, setShowGuest] = (0, _react.useState)(false);
+
+  function handleShowGuest() {
+    setShowGuest(!showGuest);
+  }
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "box"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -28651,19 +28787,14 @@ function Popup({
     className: "popup_form"
   }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "popup_container"
-  }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("select", {
-    onChange: HandleFiltering
-  }, /*#__PURE__*/_react.default.createElement("option", {
-    value: "Helsinki"
-  }, "Helsinki, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Turku"
-  }, "Turku, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Oulu"
-  }, "Oulu, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "vaasa"
-  }, "Vaasa, Finland"))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_Input.default, {
+    HandleFiltering: HandleFiltering,
+    handleClose: handleClose
+  })), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
+    onClick: handleShowGuest,
+    className: "guestButton",
     onChange: toggleGuest
-  }, guestTotal), /*#__PURE__*/_react.default.createElement(_Guest.default, {
+  }, guestTotal, " guests"), showGuest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
     HandleFiltering: HandleFiltering,
     handleClose: handleClose,
     addguest: addguest,
@@ -28695,7 +28826,7 @@ function Popup({
 ;
 var _default = Popup;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js"}],"components/Main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js","./Input":"components/Input.js"}],"components/Main.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28836,7 +28967,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50740" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55807" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

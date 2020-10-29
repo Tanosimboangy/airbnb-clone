@@ -32,7 +32,6 @@ function Main() {
         setAllStays(GuestNumbers.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
     }
     
-    
     return (
         <div>
             <div>
