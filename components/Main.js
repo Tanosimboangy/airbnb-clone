@@ -30,7 +30,6 @@ function Main() {
     
     function HandleFiltering(e) {
         setAllStays(GuestNumbers.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
-        console.log(GuestNumbers);
     }
     
     
@@ -39,9 +38,17 @@ function Main() {
             <div>
                 {isOpen && <Popup 
                     HandleFiltering={HandleFiltering} 
-                    toggleGuest={toggleGuest} 
                     togglePopup={togglePopup} 
                     handleClose={togglePopup}
+                    addguest={addguest}
+                    setAddguest={setAddguest}
+                    toggleGuest={toggleGuest}
+                    countAdd={countAdd}
+                    setCountAdd={setCountAdd}
+                    countChild={countChild}
+                    setCountChild={setCountChild}
+                    guestTotal={guestTotal}
+                    GuestNumbers={GuestNumbers}
                 />}
                 <Header togglePopup={togglePopup}/>
             </div>

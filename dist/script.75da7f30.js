@@ -28535,31 +28535,63 @@ function Header(props) {
 
 var _default = Header;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/InputSelect.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"components/Guest.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = InputSelect;
+exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function InputSelect({
-  HandleFiltering
+function Guest({
+  HandleFiltering,
+  handleClose,
+  addguest,
+  setAddguest,
+  toggleGuest,
+  countAdd,
+  setCountAdd,
+  countChild,
+  setCountChild,
+  guestTotal,
+  GuestNumbers
 }) {
-  return /*#__PURE__*/_react.default.createElement("ul", {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "popup_guest"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Add new Guests"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Adults"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 13 or above"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'flex',
-      padding: "0",
-      flexDirection: 'column',
+      flexDirection: 'row',
       justifyContent: 'space-between',
-      alignContent: 'space-between'
+      maxWidth: '70px'
     }
-  });
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    onClick: () => setCountAdd(currentCountAdd => currentCountAdd - 1)
+  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countAdd), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: () => setCountAdd(currentCountAdd => currentCountAdd + 1)
+  }, "+"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Children"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 2-12"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      maxWidth: '70px'
+    }
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    onClick: GuestNumbers,
+    onClick: () => setCountChild(currentCountChild => currentCountChild - 1)
+  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countChild), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: GuestNumbers,
+    onClick: () => setCountChild(currentCountChild => currentCountChild + 1)
+  }, "+"))));
 }
+
+;
+var _default = Guest;
+exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"components/Popup.js":[function(require,module,exports) {
 "use strict";
 
@@ -28570,36 +28602,62 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _InputSelect = _interopRequireDefault(require("./InputSelect.js"));
+var _Guest = _interopRequireDefault(require("./Guest.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import Guest from "./Guest.js";
-function Popup(props) {
+// import InputSelect from "./InputSelect.js";
+function Popup({
+  HandleFiltering,
+  handleClose,
+  addguest,
+  setAddguest,
+  toggleGuest,
+  countAdd,
+  setCountAdd,
+  countChild,
+  setCountChild,
+  guestTotal,
+  GuestNumbers
+}) {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "box"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "popup_header"
   }, /*#__PURE__*/_react.default.createElement("p", null, "Edit your search"), /*#__PURE__*/_react.default.createElement("button", {
     className: "close-icon",
-    onClick: props.handleClose
+    onClick: handleClose
   }, "x")), /*#__PURE__*/_react.default.createElement("div", {
     className: "popup_form"
   }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "popup_container"
-  }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    name: "country",
-    className: "country",
-    onChange: props.HandleFiltering
-  }), /*#__PURE__*/_react.default.createElement(_InputSelect.default, {
-    HandleFiltering: props.HandleFiltering,
-    toggleGuest: props.toggleGuest,
-    togglePopup: props.togglePopup,
-    handleClose: props.togglePopup
+  }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("select", {
+    onChange: HandleFiltering
+  }, /*#__PURE__*/_react.default.createElement("option", {
+    value: "Helsinki"
+  }, "Helsinki, Finland"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Turku"
+  }, "Turku, Finland"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Oulu"
+  }, "Oulu, Finland"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "vaasa"
+  }, "Vaasa, Finland"))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
+    onChange: toggleGuest
+  }, guestTotal), /*#__PURE__*/_react.default.createElement(_Guest.default, {
+    HandleFiltering: HandleFiltering,
+    handleClose: handleClose,
+    addguest: addguest,
+    setAddguest: setAddguest,
+    toggleGuest: toggleGuest,
+    countAdd: countAdd,
+    setCountAdd: setCountAdd,
+    countChild: countChild,
+    setCountChild: setCountChild,
+    guestTotal: guestTotal,
+    GuestNumbers: GuestNumbers
   })), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    onClick: props.handleClose
+    onClick: handleClose
   }, /*#__PURE__*/_react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     height: "24",
@@ -28617,7 +28675,7 @@ function Popup(props) {
 ;
 var _default = Popup;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./InputSelect.js":"components/InputSelect.js"}],"components/Main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js"}],"components/Main.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28667,14 +28725,21 @@ function Main() {
 
   function HandleFiltering(e) {
     setAllStays(GuestNumbers.filter(result => result.city.toLowerCase() === e.target.value.toLowerCase()));
-    console.log(GuestNumbers);
   }
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, isOpen && /*#__PURE__*/_react.default.createElement(_Popup.default, {
     HandleFiltering: HandleFiltering,
-    toggleGuest: toggleGuest,
     togglePopup: togglePopup,
-    handleClose: togglePopup
+    handleClose: togglePopup,
+    addguest: addguest,
+    setAddguest: setAddguest,
+    toggleGuest: toggleGuest,
+    countAdd: countAdd,
+    setCountAdd: setCountAdd,
+    countChild: countChild,
+    setCountChild: setCountChild,
+    guestTotal: guestTotal,
+    GuestNumbers: GuestNumbers
   }), /*#__PURE__*/_react.default.createElement(_Header.default, {
     togglePopup: togglePopup
   })), /*#__PURE__*/_react.default.createElement("main", null, GuestNumbers.map(item => {
@@ -28751,7 +28816,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60615" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65317" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
