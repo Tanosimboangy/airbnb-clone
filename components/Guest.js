@@ -1,4 +1,4 @@
-import React from "react"; 
+import React, { useState } from "react"; 
 function Guest({HandleFiltering, handleClose, addguest, setAddguest, toggleGuest, countAdd, setCountAdd, countChild, setCountChild, guestTotal, GuestNumbers}) {
 
     function handleCountAddDecrement() {
@@ -7,8 +7,7 @@ function Guest({HandleFiltering, handleClose, addguest, setAddguest, toggleGuest
         }
     }
     function handleCountAddIncrement() {
-        setCountAdd(prev => prev + 1)
-        
+        setCountAdd(prev => prev + 1)    
     }
     function handleCountChildDecrement() {
         if (countChild > 0) {
@@ -18,6 +17,7 @@ function Guest({HandleFiltering, handleClose, addguest, setAddguest, toggleGuest
     function handleCountChildIncrement() {
         setCountChild(prev => prev + 1)
     }
+    
     return (
         <div className="popup_guest">
             <h1>Add new Guests</h1>

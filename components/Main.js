@@ -33,8 +33,8 @@ function Main() {
     }
     
     return (
-        <div>
-            <div>
+        <>
+            <>
                 {isOpen && <Popup 
                     HandleFiltering={HandleFiltering} 
                     togglePopup={togglePopup} 
@@ -50,7 +50,7 @@ function Main() {
                     GuestNumbers={GuestNumbers}
                 />}
                 <Header togglePopup={togglePopup}/>
-            </div>
+            </>
             <main>
                 {GuestNumbers.map(item => {
                     return (
@@ -59,6 +59,6 @@ function Main() {
                         </section>
                     )})}
             </main>
-        </div>
+        </>
     )}
 export default Main;
