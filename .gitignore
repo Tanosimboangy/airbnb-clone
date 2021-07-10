@@ -1,3 +1,6 @@
 .cache
-/node_modules
+/.vscode
 .DS_Store
+yarn.lock
+.parcel-cache
+/node_modules
