@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Element from './Element.js'
-import stays from './stays.json'
+import stays from '../index.json'
 import Header from './Header.js'
 import Popup from './Popup.js'
 import styled from 'styled-components'
@@ -12,10 +12,10 @@ const Base = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   max-width: 95%;
   margin: auto;
 `
-
 const Card = styled.div``
 
 function Main() {
@@ -69,7 +69,7 @@ function Main() {
         )}
         <Header togglePopup={togglePopup} />
       </Wrapper>
-      <Base>
+      {/* <Base>
         {GuestNumbers.map((item) => {
           return (
             <Card key={item.id}>
@@ -77,7 +77,7 @@ function Main() {
             </Card>
           )
         })}
-      </Base>
+      </Base> */}
     </Container>
   )
 }

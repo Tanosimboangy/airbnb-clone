@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const SubContainer = styled.div`
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
   padding-bottom: 50px;
 `
 const Image = styled.img`

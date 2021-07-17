@@ -30765,7 +30765,7 @@ const LocationButton = _styledComponents.default.input`
     padding: 14px 12px;
   }
 `;
-const GuestButton = _styledComponents.default.input`
+const AddGuestButton = _styledComponents.default.input`
   background-color: white;
   padding: 18px 16px;
   border-right: 1px solid #f2f2f2;
@@ -30785,22 +30785,19 @@ const SearchButton = _styledComponents.default.button`
 `;
 const SearchLogo = _styledComponents.default.img``;
 
-function Header({
-  togglePopup,
-  HandleFiltering
-}) {
+function Header(props) {
   return /*#__PURE__*/_react.default.createElement(HeaderWrapper, null, /*#__PURE__*/_react.default.createElement(Title, null, /*#__PURE__*/_react.default.createElement(LogoLink, {
     href: "https://www.agoda.com/the-wind-bnb/hotel/tainan-tw.html?   cid=1844104"
   }, /*#__PURE__*/_react.default.createElement(Logo, {
     src: _logo.default
   }))), /*#__PURE__*/_react.default.createElement(Form, {
-    onClick: togglePopup
+    onClick: props.togglePopup
   }, /*#__PURE__*/_react.default.createElement(LocationButton, {
     type: "button",
     value: "LOCATION" //   placeholder='Choose one list'
     ,
-    onChange: HandleFiltering
-  }), /*#__PURE__*/_react.default.createElement(GuestButton, {
+    onChange: props.HandleFiltering
+  }), /*#__PURE__*/_react.default.createElement(AddGuestButton, {
     type: "button",
     value: "ADD GUEST" // placeholder='Add guest'
 
@@ -30892,7 +30889,7 @@ function Guest({
 ;
 var _default = Guest;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/LocationList.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"components/Input.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31031,42 +31028,13 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _Guest = _interopRequireDefault(require("./Guest.js"));
 
-var _LocationList = _interopRequireDefault(require("./LocationList"));
-
-var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _Input = _interopRequireDefault(require("./Input"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-const WrapperPopup = _styledComponents.default.div`
-  position: fixed;
-  top: 6px;
-  height: 80%;
-  right: 5px;
-  background-color: white;
-  left: 5px;
-`;
-const PopupHeader = _styledComponents.default.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 13px;
-`;
-const ClosePopup = _styledComponents.default.span`
-  font-size: 24px;
-  cursor: pointer;
-`;
-const PopupContainer = _styledComponents.default.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  max-width: 90%;
-  margin: auto;
-`;
-const AddGuestButton = _styledComponents.default.button``;
 
 function Popup({
   HandleFiltering,
@@ -31087,21 +31055,57 @@ function Popup({
     setShowGuest(!showGuest);
   }
 
-  return /*#__PURE__*/_react.default.createElement(WrapperPopup, null, /*#__PURE__*/_react.default.createElement(PopupHeader, null, /*#__PURE__*/_react.default.createElement("p", null, "Edit your search"), /*#__PURE__*/_react.default.createElement(ClosePopup, {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "box"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "popup_header"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "Edit your search"), /*#__PURE__*/_react.default.createElement("button", {
     className: "close-icon",
     onClick: handleClose
-  }, "x")), /*#__PURE__*/_react.default.createElement(PopupContainer, null, /*#__PURE__*/_react.default.createElement(_LocationList.default, {
+  }, "x")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "popup_form"
+  }, /*#__PURE__*/_react.default.createElement("ul", {
+    className: "popup_container"
+  }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_Input.default, {
     HandleFiltering: HandleFiltering,
     handleClose: handleClose
-  }), /*#__PURE__*/_react.default.createElement(AddGuestButton, {
+  })), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
     onClick: handleShowGuest,
-    onClick: toggleGuest
-  }, guestTotal, " guests")));
+    className: "guestButton",
+    onChange: toggleGuest
+  }, guestTotal, " guests"), showGuest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
+    HandleFiltering: HandleFiltering,
+    handleClose: handleClose,
+    addguest: addguest,
+    setAddguest: setAddguest,
+    toggleGuest: toggleGuest,
+    countAdd: countAdd,
+    setCountAdd: setCountAdd,
+    countChild: countChild,
+    setCountChild: setCountChild,
+    guestTotal: guestTotal,
+    GuestNumbers: GuestNumbers
+  })), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
+    type: "button",
+    onClick: handleClose
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24",
+    fill: "white"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+  })), "Search")))));
 }
 
+;
 var _default = Popup;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js","./LocationList":"components/LocationList.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/Main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js","./Input":"components/Input.js"}],"components/Main.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31188,7 +31192,7 @@ function Main() {
 
 var _default = Main;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Element.js":"components/Element.js","../index.json":"index.json","./Header.js":"components/Header.js","./Popup.js":"components/Popup.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Element.js":"components/Element.js","../index.json":"index.json","./Header.js":"components/Header.js","./Popup.js":"components/Popup.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -31234,7 +31238,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39793" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37239" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -31410,5 +31414,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/airbnb-clone.e31bb0bc.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","App.js"], null)
+//# sourceMappingURL=/App.d36a57b6.js.map
