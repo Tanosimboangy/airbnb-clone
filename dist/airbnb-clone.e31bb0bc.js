@@ -30718,6 +30718,7 @@ var _search = _interopRequireDefault(require("../icons/search.svg"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const HeaderWrapper = _styledComponents.default.header`
+  margin-bottom: 37px;
   @media (min-width: 500px) {
     padding-top: 32px;
     padding-bottom: 61px;
@@ -30727,6 +30728,7 @@ const HeaderWrapper = _styledComponents.default.header`
     align-items: center;
     max-width: 86%;
     margin: auto;
+    margin-bottom: 0;
   }
 `;
 const Title = _styledComponents.default.h1`
@@ -30797,13 +30799,11 @@ function Header({
     onClick: togglePopup
   }, /*#__PURE__*/_react.default.createElement(LocationButton, {
     type: "button",
-    value: "LOCATION" //   placeholder='Choose one list'
-    ,
+    value: "LOCATION",
     onChange: HandleFiltering
   }), /*#__PURE__*/_react.default.createElement(GuestButton, {
     type: "button",
-    value: "ADD GUEST" // placeholder='Add guest'
-
+    value: "ADD GUEST"
   }), /*#__PURE__*/_react.default.createElement(SearchButton, {
     type: "button"
   }, /*#__PURE__*/_react.default.createElement(SearchLogo, {
@@ -30821,78 +30821,87 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Guest({
-  HandleFiltering,
-  handleClose,
-  addguest,
-  setAddguest,
-  toggleGuest,
   countAdd,
   setCountAdd,
   countChild,
-  setCountChild,
-  guestTotal,
-  GuestNumbers
+  setCountChild
 }) {
-  function handleCountAddDecrement() {
-    if (countAdd > 0) {
-      setCountAdd(prev => prev - 1);
-    }
-  }
+  const handleCountDecrement = () => countAdd > 0 ? setCountAdd(countAdd - 1) : countAdd;
 
-  function handleCountAddIncrement() {
-    setCountAdd(prev => prev + 1);
-  }
+  const handleCountIncrement = () => setCountAdd(countAdd + 1);
 
-  function handleCountChildDecrement() {
-    if (countChild > 0) {
-      setCountChild(prev => prev - 1);
-    }
-  }
+  const handleCountChildDecrement = () => countChild > 0 ? setCountChild(countChild - 1) : countChild;
 
-  function handleCountChildIncrement() {
-    setCountChild(prev => prev + 1);
-  }
+  const handleCountChildIncrement = () => setCountChild(countChild + 1);
 
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "popup_guest"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Add new Guests"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Adults"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 13 or above"), /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      maxWidth: '100px'
-    }
-  }, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: handleCountAddDecrement
-  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countAdd), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: handleCountAddIncrement
-  }, "+"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Children"), /*#__PURE__*/_react.default.createElement("p", null, "Ages 2-12"), /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      maxWidth: '100px'
-    }
-  }, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: GuestNumbers,
+  const PopupAddGuest = _styledComponents.default.div`
+    margin-top: 48px;
+    padding: 17px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  `;
+  const PopupAddGuestTitle = _styledComponents.default.div`
+    margin-bottom: 24px;
+  `;
+  const TitleWrapper = _styledComponents.default.h2`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    margin-bottom: 24px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+  `;
+  const Title = _styledComponents.default.h2`
+    color: #333333;
+    padding-bottom: 6px;
+  `;
+  const Span = _styledComponents.default.span`
+    color: gray;
+  `;
+  const ButtonsWrappers = _styledComponents.default.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  `;
+  const CountGuest = _styledComponents.default.span`
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    color: #333333;
+  `;
+  const Buttons = _styledComponents.default.button`
+    background: white;
+    border-radius: 4px;
+    border: 1px solid black;
+  `;
+  return /*#__PURE__*/_react.default.createElement(PopupAddGuest, null, /*#__PURE__*/_react.default.createElement(PopupAddGuestTitle, null, /*#__PURE__*/_react.default.createElement(TitleWrapper, null, /*#__PURE__*/_react.default.createElement(Title, null, "Adults"), /*#__PURE__*/_react.default.createElement(Span, null, "Ages 13 or above")), /*#__PURE__*/_react.default.createElement(ButtonsWrappers, null, /*#__PURE__*/_react.default.createElement(Buttons, {
+    onClick: handleCountDecrement
+  }, "-"), /*#__PURE__*/_react.default.createElement(CountGuest, null, countAdd), /*#__PURE__*/_react.default.createElement(Buttons, {
+    onClick: handleCountIncrement
+  }, "+"))), /*#__PURE__*/_react.default.createElement(PopupAddGuestTitle, null, /*#__PURE__*/_react.default.createElement(TitleWrapper, null, /*#__PURE__*/_react.default.createElement(Title, null, "Children"), /*#__PURE__*/_react.default.createElement(Span, null, "Ages 2-12")), /*#__PURE__*/_react.default.createElement(ButtonsWrappers, null, /*#__PURE__*/_react.default.createElement(Buttons, {
     onClick: handleCountChildDecrement
-  }, "-"), /*#__PURE__*/_react.default.createElement("b", null, countChild), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: GuestNumbers,
+  }, "-"), /*#__PURE__*/_react.default.createElement(CountGuest, null, countChild), /*#__PURE__*/_react.default.createElement(Buttons, {
     onClick: handleCountChildIncrement
   }, "+"))));
 }
 
-;
 var _default = Guest;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/LocationList.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/LocationList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30900,29 +30909,28 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = InputSelect;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.div``;
+const Input = _styledComponents.default.input``;
 
 function InputSelect({
-  HandleFiltering
+  HandleFiltering,
+  showLocation,
+  showList
 }) {
-  const [showList, setShowList] = (0, _react.useState)(false);
-
-  function showLocation() {
-    setShowList(!showList);
-  }
-
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("input", {
+  return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(Input, {
     onClick: showLocation,
-    type: "text",
+    type: "button",
     placeholder: "ADD A LIST"
   }), showList && /*#__PURE__*/_react.default.createElement("ul", {
     style: {
       display: 'flex',
-      padding: "0",
+      padding: '0',
       flexDirection: 'column',
       justifyContent: 'space-between',
       alignContent: 'space-between'
@@ -30934,7 +30942,7 @@ function InputSelect({
       flexDirection: 'row',
       paddingBlockStart: '1rem',
       paddingBlockEnd: '1rem',
-      cursor: "pointer"
+      cursor: 'pointer'
     }
   }, /*#__PURE__*/_react.default.createElement("svg", {
     style: {
@@ -30958,7 +30966,7 @@ function InputSelect({
       flexDirection: 'row',
       paddingBlockStart: '1rem',
       paddingBlockEnd: '1rem',
-      cursor: "pointer"
+      cursor: 'pointer'
     }
   }, /*#__PURE__*/_react.default.createElement("svg", {
     style: {
@@ -30980,7 +30988,7 @@ function InputSelect({
       flexDirection: 'row',
       paddingBlockStart: '1rem',
       paddingBlockEnd: '1rem',
-      cursor: "pointer"
+      cursor: 'pointer'
     }
   }, /*#__PURE__*/_react.default.createElement("svg", {
     style: {
@@ -31002,7 +31010,7 @@ function InputSelect({
       flexDirection: 'row',
       paddingBlockStart: '1rem',
       paddingBlockEnd: '1rem',
-      cursor: "pointer"
+      cursor: 'pointer'
     }
   }, /*#__PURE__*/_react.default.createElement("svg", {
     style: {
@@ -31019,7 +31027,9 @@ function InputSelect({
     d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
   })), /*#__PURE__*/_react.default.createElement("p", null, "Vaasa, Finland"))));
 }
-},{"react":"node_modules/react/index.js"}],"components/Popup.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"icons/white_search.svg":[function(require,module,exports) {
+module.exports = "/white_search.a6389dbf.svg";
+},{}],"components/Popup.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31035,6 +31045,8 @@ var _LocationList = _interopRequireDefault(require("./LocationList"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _white_search = _interopRequireDefault(require("../icons/white_search.svg"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -31044,7 +31056,7 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 const WrapperPopup = _styledComponents.default.div`
   position: fixed;
   top: 6px;
-  height: 80%;
+  height: 58%;
   right: 5px;
   background-color: white;
   left: 5px;
@@ -31056,6 +31068,14 @@ const PopupHeader = _styledComponents.default.div`
   align-items: center;
   padding: 18px 13px;
 `;
+const PopupTitle = _styledComponents.default.p`
+  // font-family: Mulish;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  color: #333333;
+`;
 const ClosePopup = _styledComponents.default.span`
   font-size: 24px;
   cursor: pointer;
@@ -31066,7 +31086,39 @@ const PopupContainer = _styledComponents.default.div`
   max-width: 90%;
   margin: auto;
 `;
-const AddGuestButton = _styledComponents.default.button``;
+const AddGuestButton = _styledComponents.default.button`
+  background-color: white;
+  padding: 16px 0;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+`;
+const SearchSubmit = _styledComponents.default.button`
+  border: 0;
+  line-height: 2.5;
+  padding: 6px 20px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgba(220, 0, 0, 1);
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: inset 2px 2px 3px rgb(255 255 255 / 60%),
+    inset -2px -2px 3px rgb(0 0 0 / 60%);
+  width: 126px;
+  margin: auto;
+  position: fixed;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+`;
 
 function Popup({
   HandleFiltering,
@@ -31082,26 +31134,39 @@ function Popup({
   GuestNumbers
 }) {
   const [showGuest, setShowGuest] = (0, _react.useState)(false);
+  const [showList, setShowList] = (0, _react.useState)(false);
 
   function handleShowGuest() {
     setShowGuest(!showGuest);
   }
 
-  return /*#__PURE__*/_react.default.createElement(WrapperPopup, null, /*#__PURE__*/_react.default.createElement(PopupHeader, null, /*#__PURE__*/_react.default.createElement("p", null, "Edit your search"), /*#__PURE__*/_react.default.createElement(ClosePopup, {
+  function showLocation() {
+    setShowList(!showList);
+    setShowGuest(showGuest);
+  }
+
+  return /*#__PURE__*/_react.default.createElement(WrapperPopup, null, /*#__PURE__*/_react.default.createElement(PopupHeader, null, /*#__PURE__*/_react.default.createElement(PopupTitle, null, "Edit your search"), /*#__PURE__*/_react.default.createElement(ClosePopup, {
     className: "close-icon",
     onClick: handleClose
-  }, "x")), /*#__PURE__*/_react.default.createElement(PopupContainer, null, /*#__PURE__*/_react.default.createElement(_LocationList.default, {
-    HandleFiltering: HandleFiltering,
-    handleClose: handleClose
-  }), /*#__PURE__*/_react.default.createElement(AddGuestButton, {
+  }, "x")), /*#__PURE__*/_react.default.createElement(PopupContainer, null, /*#__PURE__*/_react.default.createElement(AddGuestButton, {
     onClick: handleShowGuest,
-    onClick: toggleGuest
-  }, guestTotal, " guests")));
+    onChange: toggleGuest
+  }, guestTotal, " guests"), showGuest && /*#__PURE__*/_react.default.createElement(_Guest.default, {
+    countAdd: countAdd,
+    setCountAdd: setCountAdd,
+    countChild: countChild,
+    setCountChild: setCountChild
+  }), /*#__PURE__*/_react.default.createElement(SearchSubmit, {
+    type: "button",
+    onClick: handleClose
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _white_search.default
+  }), "Search")));
 }
 
 var _default = Popup;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js","./LocationList":"components/LocationList.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/Main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Guest.js":"components/Guest.js","./LocationList":"components/LocationList.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","../icons/white_search.svg":"icons/white_search.svg"}],"components/Main.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31183,6 +31248,12 @@ function Main() {
     GuestNumbers: GuestNumbers
   }), /*#__PURE__*/_react.default.createElement(_Header.default, {
     togglePopup: togglePopup
+  })), /*#__PURE__*/_react.default.createElement(Base, null, GuestNumbers.map(item => {
+    return /*#__PURE__*/_react.default.createElement(Card, {
+      key: item.id
+    }, /*#__PURE__*/_react.default.createElement(_Element.default, {
+      item: item
+    }));
   })));
 }
 
@@ -31234,7 +31305,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39793" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42671" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

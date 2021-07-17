@@ -69,7 +69,7 @@ function Main() {
         )}
         <Header togglePopup={togglePopup} />
       </Wrapper>
-      {/* <Base>
+      <Base>
         {GuestNumbers.map((item) => {
           return (
             <Card key={item.id}>
@@ -77,7 +77,7 @@ function Main() {
             </Card>
           )
         })}
-      </Base> */}
+      </Base>
     </Container>
   )
 }

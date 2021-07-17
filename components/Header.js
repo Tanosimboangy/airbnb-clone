@@ -4,6 +4,7 @@ import logo from '../icons/logo.svg'
 import search from '../icons/search.svg'
 
 const HeaderWrapper = styled.header`
+  margin-bottom: 37px;
   @media (min-width: 500px) {
     padding-top: 32px;
     padding-bottom: 61px;
@@ -13,6 +14,7 @@ const HeaderWrapper = styled.header`
     align-items: center;
     max-width: 86%;
     margin: auto;
+    margin-bottom: 0;
   }
 `
 const Title = styled.h1`
@@ -83,14 +85,9 @@ function Header({ togglePopup, HandleFiltering }) {
         <LocationButton
           type='button'
           value='LOCATION'
-          //   placeholder='Choose one list'
           onChange={HandleFiltering}
         />
-        <GuestButton
-          type='button'
-          value='ADD GUEST'
-          // placeholder='Add guest'
-        />
+        <GuestButton type='button' value='ADD GUEST' />
         <SearchButton type='button'>
           <SearchLogo src={search} />
         </SearchButton>

@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import Guest from './Guest.js'
 import LocationList from './LocationList'
 import styled from 'styled-components'
+import whiteSearch from '../icons/white_search.svg'
 
 const WrapperPopup = styled.div`
   position: fixed;
   top: 6px;
-  height: 80%;
+  height: 58%;
   right: 5px;
   background-color: white;
   left: 5px;
@@ -18,6 +19,14 @@ const PopupHeader = styled.div`
   align-items: center;
   padding: 18px 13px;
 `
+const PopupTitle = styled.p`
+  // font-family: Mulish;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  color: #333333;
+`
 const ClosePopup = styled.span`
   font-size: 24px;
   cursor: pointer;
@@ -28,7 +37,39 @@ const PopupContainer = styled.div`
   max-width: 90%;
   margin: auto;
 `
-const AddGuestButton = styled.button``
+const AddGuestButton = styled.button`
+  background-color: white;
+  padding: 16px 0;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+`
+const SearchSubmit = styled.button`
+  border: 0;
+  line-height: 2.5;
+  padding: 6px 20px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgba(220, 0, 0, 1);
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: inset 2px 2px 3px rgb(255 255 255 / 60%),
+    inset -2px -2px 3px rgb(0 0 0 / 60%);
+  width: 126px;
+  margin: auto;
+  position: fixed;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+`
 
 function Popup({
   HandleFiltering,
@@ -44,54 +85,44 @@ function Popup({
   GuestNumbers,
 }) {
   const [showGuest, setShowGuest] = useState(false)
+  const [showList, setShowList] = useState(false)
   function handleShowGuest() {
     setShowGuest(!showGuest)
+  }
+  function showLocation() {
+    setShowList(!showList)
+    setShowGuest(showGuest)
   }
   return (
     <WrapperPopup>
       <PopupHeader>
-        <p>Edit your search</p>
+        <PopupTitle>Edit your search</PopupTitle>
         <ClosePopup className='close-icon' onClick={handleClose}>
           x
         </ClosePopup>
       </PopupHeader>
       <PopupContainer>
-        <LocationList
+        {/* <LocationList
           HandleFiltering={HandleFiltering}
           handleClose={handleClose}
-        />
-        <AddGuestButton onClick={handleShowGuest} onClick={toggleGuest}>
+          showLocation={showLocation}
+          showList={showList}
+        /> */}
+        <AddGuestButton onClick={handleShowGuest} onChange={toggleGuest}>
           {guestTotal} guests
         </AddGuestButton>
-        {/* {showGuest && (
-                <Guest
-                  HandleFiltering={HandleFiltering}
-                  handleClose={handleClose}
-                  addguest={addguest}
-                  setAddguest={setAddguest}
-                  toggleGuest={toggleGuest}
-                  countAdd={countAdd}
-                  setCountAdd={setCountAdd}
-                  countChild={countChild}
-                  setCountChild={setCountChild}
-                  guestTotal={guestTotal}
-                  GuestNumbers={GuestNumbers}
-                />
-              )} */}
-        {/* <li>
-              <button type='button' onClick={handleClose}>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  height='24'
-                  viewBox='0 0 24 24'
-                  width='24'
-                  fill='white'>
-                  <path d='M0 0h24v24H0z' fill='none' />
-                  <path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
-                </svg>
-                Search
-              </button>
-            </li> */}
+        {showGuest && (
+          <Guest
+            countAdd={countAdd}
+            setCountAdd={setCountAdd}
+            countChild={countChild}
+            setCountChild={setCountChild}
+          />
+        )}
+        <SearchSubmit type='button' onClick={handleClose}>
+          <img src={whiteSearch} />
+          Search
+        </SearchSubmit>
       </PopupContainer>
     </WrapperPopup>
   )
